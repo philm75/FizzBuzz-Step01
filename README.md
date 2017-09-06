@@ -1,6 +1,12 @@
 # FizzBuzz-Step01
 Fizz Buzz Step 01
 
-The program requires Java 8 to run, to run the program run the executable jar file run-step01.jar in the bin folder.
+Program Requirements
+====================
+Java 8.
 
-e.g. java -jar run-step01.jar
+Running the code
+================
+Use the executable jar file run-step01.jar in the bin folder and enter the following command:- 
+
+java -jar run-step01.jar
