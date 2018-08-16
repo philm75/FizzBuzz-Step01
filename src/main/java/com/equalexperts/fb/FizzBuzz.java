@@ -51,34 +51,50 @@ public class FizzBuzz {
 		});
 	}
 	
+	
+	/**
+	 * 
+	 * ``if (number contains a 3) print "lucky"
+
+else if (number is multiple of 15) print "fizzbuzz"
+
+else if (number is multiple of 5) print "fizz"
+
+else if (number is multiple of 3) print "buzz"
+
+else print number```
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
 	/**
 	 * Format the output according to the rules in step 1.
 	 * 
 	 * @param value
 	 * @return
 	 */
-	private void print(Integer value) {		
-		boolean isDivisable = false;
-		
-		if (value % 3 == 0) {
+	private void print(Integer value) {	
+		boolean isDivisableByThree = (value % 3 == 0);
+		boolean isDivisableByFive = (value % 5 == 0);
+		boolean isDivisableByFifteen = (value % 15 == 0);
+				
+		if (isDivisableByFifteen) {
 			System.out.print(FIZZ);
-			isDivisable = true;
-		} 
-		
-		if (value % 5 == 0) {
 			System.out.print(BUZZ);
-			isDivisable = true;
-		} 
-		
-		if (!isDivisable) {
+		} else if (isDivisableByFive) {
+			System.out.print(BUZZ);			
+		} else if (isDivisableByThree) {
+			System.out.print(FIZZ);			
+		} else {
 			System.out.print(value);			
 		}
-		
+			
 		if (value.intValue() < maxRange) {
 			System.out.print(" ");			
 		}
 	}
-
 
 	/**
 	 * Program entry point.
