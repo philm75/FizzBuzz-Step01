@@ -1,12 +1,10 @@
-package com.mcs;
+package com.equalexperts.fb;
 
-import java.util.Iterator;
 import java.util.stream.IntStream;
 
 /**
- * @author Phil Merrilees
- * Sep 5, 2017
- * Description - "FizzBuzz" program
+ * Description - "FizzBuzz" - Step 1
+ *
  */
 public class FizzBuzz {
 
@@ -47,30 +45,38 @@ public class FizzBuzz {
 		this.maxRange = maxRange;
 	}
 	
-	public void go() {
-		Iterator<Integer> it = IntStream.rangeClosed(minRange, maxRange).iterator();
-		while (it.hasNext()) {
-			System.out.print(output(it.next()));
-		}
+	public void run() {		
+		IntStream.rangeClosed(minRange, maxRange).forEach(number -> {
+			print(number);
+		});
 	}
 	
-	private static String output(Integer value) {
-		StringBuilder output = new StringBuilder();
+	/**
+	 * Format the output according to the rules in step 1.
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private void print(Integer value) {		
 		boolean isDivisable = false;
+		
 		if (value % 3 == 0) {
-			output.append(FIZZ);
+			System.out.print(FIZZ);
 			isDivisable = true;
 		} 
+		
 		if (value % 5 == 0) {
-			output.append(BUZZ);
+			System.out.print(BUZZ);
 			isDivisable = true;
-		}
+		} 
 		
 		if (!isDivisable) {
-			output.append(String.valueOf(value));			
+			System.out.print(value);			
 		}
-		output.append(" ");
-		return output.toString();
+		
+		if (value.intValue() < maxRange) {
+			System.out.print(" ");			
+		}
 	}
 
 
@@ -81,6 +87,8 @@ public class FizzBuzz {
 	 */
 	public static void main(String[] args) {
 		FizzBuzz fizzBuzz = new FizzBuzz(1, 20);
-		fizzBuzz.go();
+		fizzBuzz.run();
+		System.out.println("");
+		fizzBuzz.run();
 	}
 }
